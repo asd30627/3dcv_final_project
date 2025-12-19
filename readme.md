@@ -58,8 +58,6 @@ python eval.py \
   --print-freq 50 \
   --skip-existing
 
----
-
 ## 其他：Clone 本專案後的訓練與驗證（最常用）
 
 接下來 clone 本專案後，直接執行以下指令即可開始跑：
