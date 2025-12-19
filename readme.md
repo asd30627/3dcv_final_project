@@ -58,3 +58,17 @@ python eval.py \
   --print-freq 50 \
   --skip-existing
 
+---
+
+## 其他：Clone 本專案後的訓練與驗證（最常用）
+
+接下來 clone 本專案後，直接執行以下指令即可開始跑：
+
+```bash
+python train_student.py --py-config config/nuscenes_student_nobase.py --work-dir ./work_dirs/1219_KD
+
+## 驗證
+
+```bash
+python eval_occ_metrics_from_pth.py   --py-config config/nuscenes_student_nobase.py   --ckpt work_dirs/occ_student_nobase/epoch_11.pth
+
