@@ -7,20 +7,26 @@
 並在 dataloader 讀取後進行蒸餾訓練
 ---
 #
--以下網址為純student版本(無蒸餾)，但介紹還是在這
--https://github.com/asd30627/3dcv_final_project_no_distallation
+- 以下網址為純student版本(無蒸餾)，但介紹還是在這
+- https://github.com/asd30627/3dcv_final_project_no_distallation
 
--訓練:
--python train_student.py --py-config config/nuscenes_student_nobase.py
--可視化:
+- 訓練:
+```bash
+python train_student.py --py-config config/nuscenes_student_nobase.py
+```
+- 可視化:
+```bash
 -python vis_student.py \
   --py-config path/to/your_config.py \
   --weights path/to/latest.pth \
   --viz-dir path/to/output_viz \
   --max-samples 50
--驗證:
--python eval_occ_metrics_from_pth.py --py-config config/nuscenes_student_nobase.py --ckpt work_dirs/occ_student_nobase/epoch_11.pth
-p.s.驗證miou不太好，但可視化效果不錯，推斷是miou計算有問題
+```
+- 驗證:
+```bash
+python eval_occ_metrics_from_pth.py --py-config config/nuscenes_student_nobase.py --ckpt work_dirs/occ_student_nobase/epoch_11.pth
+```
+- p.s.驗證miou不太好，但可視化效果不錯，推斷是miou計算有問題
 ## Dataset（nuScenes）
 1. 先至 nuScenes 官網下載完整 `trainval` 與 `test`：
 - https://www.nuscenes.org/
@@ -57,19 +63,26 @@ python eval.py \
 --dump-3d-key pred_occ \
 --print-freq 50 \
 --skip-existing
+```
 ## 其他：Clone 本專案後的訓練與驗證
-接下來 clone 本專案後，直接執行以下指令即可開始：
-訓練:
+- 接下來 clone 本專案後，直接執行以下指令即可開始：
+- 訓練:
+```bash
 python train_student.py --py-config config/nuscenes_student_nobase.py --work-dir ./work_dirs/1219_KD
+```
 ## 驗證
+```bash
 python eval_occ_metrics_from_pth.py --py-config config/nuscenes_student_nobase.py --ckpt work_dirs/occ_student_nobase/epoch_11.pth
-可視化:
+```
+- 可視化:
+```bash
 python vis_student.py \
   --py-config path/to/your_config.py \
   --weights path/to/latest.pth \
   --viz-dir path/to/output_viz \
   --max-samples 50
-p.s.驗證miou不太好，但可視化效果不錯，推斷是miou計算有問題
+```
+- p.s.驗證miou不太好，但可視化效果不錯，推斷是miou計算有問題
 
 
 
